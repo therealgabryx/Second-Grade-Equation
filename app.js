@@ -1,23 +1,16 @@
 function exec() {
-  const a = parseInt(prompt('Inserisci a..', 0));
-  const b = parseInt(prompt('Inserisci b..', 0));
-  const c = parseInt(prompt('Inserisci c..', 0));
+  const a = parseFloat(prompt('Inserisci a..', 0));
+  const b = parseFloat(prompt('Inserisci b..', 0));
+  const c = parseFloat(prompt('Inserisci c..', 0));
 
   if (!isNaN(a) && !isNaN(b) && !isNaN(c)) {
     writeEq(a, b, c);
     if (a == 0) {
-      if (b == 0) {
-        document.getElementById('eq').innerHTML = '?';
-        document.getElementById('solution').innerHTML = 'invalid input';
-      } else {
-        document.getElementById('solution').innerHTML =
-          "L'equazione e' di primo grado!";
-      }
-    } else if (b == 0) {
-      document.getElementById('solution').innerHTML = 'invalid input';
-      document.getElementById('eq').innerHTML = '?';
+      document.getElementById('solution').innerHTML =
+        "L'equazione è di primo grado!";
     } else {
       const delta = b * b - 4 * a * c;
+
       if (delta < 0) {
         document.getElementById('solution').innerHTML = 'Equazione impossibile';
       } else if (delta == 0) {
@@ -31,7 +24,6 @@ function exec() {
       }
     }
   } else {
-    document.getElementById('eq').innerHTML = '?';
     document.getElementById('solution').innerHTML = 'invalid input';
   }
 }
@@ -192,7 +184,8 @@ function writeEq(a, b, c) {
       } else {
         document.getElementById('eq').innerHTML = `- xx - x ${c}`;
       }
-    } else {
+    }
+    else {
       if (c > 0) {
         document.getElementById('eq').innerHTML = `- xx ${b}x + ${c}`;
       } else if (c == 0) {
@@ -236,7 +229,8 @@ function writeEq(a, b, c) {
       } else {
         document.getElementById('eq').innerHTML = `${a}xx - x ${c}`;
       }
-    } else {
+    }
+    else {
       if (c > 0) {
         document.getElementById('eq').innerHTML = `${a}xx ${b}x + ${c}`;
       } else if (c == 0) {
